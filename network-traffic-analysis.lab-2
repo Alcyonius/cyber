@@ -1,0 +1,65 @@
+Linux Authentication Log Analysis Lab – Ubuntu:
+Overview:
+This lab demonstrates analysis of Linux authentication logs to identify failed login attempts, privilege escalation activity, and potential brute-force behaviour. The objective was to practise log-based detection techniques commonly used by SOC analysts and system administrators.
+----------------------------------------------------------------------
+Environment:
+Host Platform: VirtualBox
+Operating System: Ubuntu Linux
+Log Sources:
+/var/log/auth.log
+journalctl
+Tools Used:
+grep
+journalctl
+Linux command-line utilities
+----------------------------------------------------------------------
+Objectives:
+Analyse Linux authentication logs for security-relevant events
+Identify failed login attempts and sudo usage
+Understand indicators of brute-force or suspicious activity
+Apply SOC-style log investigation techniques
+----------------------------------------------------------------------
+Methodology:
+An Ubuntu Linux virtual machine was configured and updated.
+Authentication logs were analysed using the following commands:
+sudo less /var/log/auth.log
+Failed login attempts were identified using keyword filtering:
+sudo grep "Failed password" /var/log/auth.log
+Privilege escalation activity was analysed by reviewing sudo events:
+sudo grep "sudo" /var/log/auth.log
+System-wide authentication events were reviewed using journalctl:
+journalctl -xe
+----------------------------------------------------------------------
+Analysis & Findings:
+Failed Authentication Attempts
+Observed failed login attempts recorded in auth.log.
+Identified timestamps, usernames, and source processes associated with failed authentication.
+Confirmed normal vs abnormal login behaviour patterns.
+Privilege Escalation Monitoring
+Analysed sudo usage to identify when elevated privileges were requested.
+Confirmed legitimate user activity versus potential misuse scenarios.
+Log Structure & Event Context
+Gained understanding of log entry structure, including timestamps, services, and severity.
+Correlated multiple log entries to understand event sequences.
+----------------------------------------------------------------------
+Security Relevance:
+Authentication logs are a critical data source for detecting:
+Brute-force login attempts
+Unauthorised access attempts
+Misuse of administrative privileges
+This lab demonstrates foundational log analysis skills required for SOC Level 1 and junior security analyst roles.
+----------------------------------------------------------------------
+Conclusion:
+The lab successfully demonstrated the ability to analyse Linux authentication logs to detect security-relevant events. By identifying failed login attempts and monitoring privilege escalation activity, this exercise reflects real-world SOC and blue-team monitoring workflows.
+----------------------------------------------------------------------
+Skills Demonstrated:
+Linux log analysis.
+Authentication and access monitoring.
+Use of grep and journalctl for security investigations.
+Understanding of brute-force and privilege escalation indicators.
+SOC-style event analysis.
+----------------------------------------------------------------------
+Next Steps:
+Simulate repeated failed login attempts and analyse detection patterns.
+Implement automated log monitoring tools.
+Correlate authentication logs with network traffic analysis.
