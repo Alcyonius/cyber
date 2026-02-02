@@ -67,7 +67,11 @@ apply http analysis and click a packet > follow > TCP Stream to see plaintext re
 Finally we can apply TCP to the same anaysis filter and then go to statistics > conversations > TCP, this shows who talked to whom, how much data moved around & direction of the traffic.   # TCP overview
 
 
-
+# Mini incident report - SOC Analysis:
+Objective: Capture and analyse baseline network traffic in a Linux environment.
+Method: Used tcpdump to capture live traffic and analysed PCAP in Wireshark.
+Findings: Observed DNS queries, ICMP echo traffic, HTTP plaintext requests, and encrypted HTTPS sessions.
+Conclusion: Demonstrated ability to identify protocols, interpret network behaviour, and analyse traffic reelvant to SOC operations.
 
 
 
