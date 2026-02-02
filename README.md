@@ -15,7 +15,6 @@ id: < Displays ID >
 
 I then added a secondary testuser to explore permissions and security as a temporary user:
 sudo adduser testuser
-sudo usernod -aG sudo testuser
 < Log out and log back in as testuser >
 sudo apt update # This updates the OS as you were updating an OS for a secondary user as a general admin.
 
@@ -47,4 +46,8 @@ ss -tulnp # Checks open connections
 < In this section i used NAT networking in VirtualBox to safely analyse traffic without exposing my host. >
 Installing Wireshark:
 sudo apt install wireshark
-sudo apt usernod -aG wireshark $USER
+sudo reboot # As it turns out after some trouble shooting and going back on my previous work, since i am using Ubuntu on VirtualBox i dont seen to have "usernod" as a command, i tried an update again and tried installing "passwd" to no avail so the next part is following the SOC route.
+sudo tcpdump -i any -w capture,pcap
+wireshark capture.pcap       # Since this is more realistic than a live capture for SOC work so even though usernod isnt a path i can use it's worked in my favour eitherway.
+
+Real-world explanation to this: I workewd within a minimal Ubuntu Linux environment where standard user-management utilities were unavailable, so i performed network traffic capture using elevated privileges and offline PCAP analysis, reflecting real-world SOC workflows.
