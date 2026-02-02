@@ -17,7 +17,7 @@ I then added a secondary testuser to explore permissions and security as a tempo
 sudo adduser testuser
 < Log out and log back in as testuser >
 sudo apt update # This updates the OS as you were updating an OS for a secondary user as a general admin.
-
+ 
 Lab 2 - Linux logs & Security Monitoring:
 # View authentication logs
 sudo less /var/log/auth.log
