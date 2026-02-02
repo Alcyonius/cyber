@@ -51,3 +51,25 @@ sudo tcpdump -i any -w capture,pcap
 wireshark capture.pcap       # Since this is more realistic than a live capture for SOC work so even though usernod isnt a path i can use it's worked in my favour eitherway.
 
 Real-world explanation to this: I workewd within a minimal Ubuntu Linux environment where standard user-management utilities were unavailable, so i performed network traffic capture using elevated privileges and offline PCAP analysis, reflecting real-world SOC workflows.
+
+Lab 4 - Capture traffic using PCAP, analyse, interpret & document:
+First we'll capture traffic safely, then analyse in Wireshark.
+sudo tcpdump -i any -w lab_capture.pcap        # -i any = captures all interfaces. -w = writes raw traffic tp a PCAP file.
+On a second terminal I cause some DNS traffic;
+nslookup google.com
+I then open firefox on the VM and visit http://example.com & https://google.com to cause some web traffic.
+in the second terminal i ping -c 5 8.8.8.8      # ICMP traffic - let this run for 30 seconds.
+Back to the original terminal i stopped the capture using CTRL + C which gave me: 16275 packets captured.
+wireshark lab_capture.pcap # Opens the capture.
+Apply a analysis filter for dns and look for query names, response IPs & unusual domains (length & randomness) # dns analysis
+apply icmp as an filter also to look for echo requests / replies and packet timing # icmp analysis
+apply http analysis and click a packet > follow > TCP Stream to see plaintext requests, headers & URLs # Which makes HTTP insecure 
+Finally we can apply TCP to the same anaysis filter and then go to statistics > conversations > TCP, this shows who talked to whom, how much data moved around & direction of the traffic.   # TCP overview
+
+
+
+
+
+
+
+
