@@ -1,0 +1,56 @@
+🔐 Linux Security Monitoring & Networking Lab
+📌 Overview
+
+This lab demonstrates hands-on experience with Linux system administration, security monitoring, and basic network traffic analysis using an Ubuntu virtual machine in VirtualBox.
+
+🧰 Tools & Technologies
+
+Ubuntu Linux (VirtualBox)
+
+Bash
+
+systemd / journalctl
+
+auth.log / syslog
+
+Wireshark
+
+TCP/IP fundamentals
+
+🎯 Objectives
+
+Understand Linux logging and auditing
+
+Monitor authentication and system events
+
+Capture and analyse network traffic
+
+Apply least-privilege principles
+
+🛠 Key Tasks Performed
+
+Installed and configured Linux VM with Guest Additions
+
+Explored system logs using journalctl, /var/log/auth.log, and /var/log/syslog
+
+Analysed login attempts and user activity
+
+Installed and configured Wireshark for packet capture
+
+Captured and filtered network traffic (DNS, HTTP, TCP)
+
+Investigated packet metadata to identify protocols and endpoints
+
+🔍 Security Concepts Applied
+
+Principle of least privilege
+
+Log-based detection
+
+Network visibility
+
+Basic threat surface awareness
+
+📈 Outcome
+
+Improved understanding of how Linux systems log activity and how network traffic can be inspected to support security monitoring and incident investigation.
